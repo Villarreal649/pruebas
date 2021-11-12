@@ -19,22 +19,22 @@
                                 </a>
                               </div>
                             @endcan
-                                <div class="card-body">
+
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover mt-2">
-                                <thead class="thead">
+                        <table class="table">
+                                <thead class="table-light">
                                     <tr>
                                         <th>No.</th>
 										<th>Rol</th>
 										<th>Acciones</th>
 
-                                
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($roles as $role) 
+                                    @foreach ($roles as $role)
                                         <tr>
-                                            <td>{{++$i}}</td>  
+                                            <td>{{++$i}}</td>
 											<td>{{ $role->name }}</td>
 											<td>
                                                     @can('editar-rol')
@@ -50,11 +50,11 @@
                                                 </form>
                                                     @endcan
                                             </td>
-                                            
-											
-										
 
-                                        
+
+
+
+
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -70,4 +70,3 @@
         </div>
     </section>
 @endsection
-

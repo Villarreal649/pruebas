@@ -18,13 +18,13 @@
                                 @foreach ($errors->all() as $error)
                                 <span class="badge badge-danger">{{ $error}}</span>
                                 @endforeach
-                                <button type="button" class="close" data-dismiss="alert aria-label="Close">
+                                <button type="button" class="close" data-dismiss="alert aria-label="Close>
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
 
                               @endif
-                            
+
                                 {!! Form::open(array('route'=>'roles.store', 'method'=>'POST'))!!}
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -38,6 +38,7 @@
                                             <div class="form-group">
                                                 <label for="name">Permisos para este Rol:</label>
                                                 <br/>
+
                                                 @foreach($permission as $value)
                                                     <label> {{ Form::checkbox('permission[]',$value->id,false, array('class'=>'name'))}}
                                                         {{$value->name}}</label>
@@ -45,7 +46,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                     
+
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
@@ -60,4 +61,3 @@
         </div>
     </section>
 @endsection
-

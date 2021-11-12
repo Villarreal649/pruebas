@@ -7,7 +7,7 @@
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-12">
+               <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                                 <div class="row">
@@ -49,11 +49,12 @@
                                                 $cant_edificios = Edificio::count();
                                                 @endphp
                                                 <h2 class="text-right"><i class="fas fa-building f-left"></i><span>{{$cant_edificios}}</span></h2>
-                                                <p class="m-b-0 text-right"><a href="/blogs" class="text-white">Ver más</a></p>
+                                                <p class="m-b-0 text-right"><a href="/edificios" class="text-white">Ver más</a></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                         </div>
                     </div>
                 </div>

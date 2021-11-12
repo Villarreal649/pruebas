@@ -40,12 +40,13 @@
 
     </a>
 
-    <a class="nav-link" href="/categorias">
+    <a class="nav-link" href="/marcas">
     <i class="fas fa-copyright"></i><span>Marcas</span>
 
     </a>
     <a class="nav-link" href="/categorias">
     <i class="fas fa-tags"></i><span>Categorias</span>
+
 
     </a>
     <a class="nav-link" href="/subcategorias">

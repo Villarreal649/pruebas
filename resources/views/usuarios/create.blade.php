@@ -17,7 +17,7 @@
                                 @foreach ($errors->all() as $error)
                                 <span class="badge badge-danger">{{ $error}}</span>
                                 @endforeach
-                                <button type="button" class="close" data-dismiss="alert aria-label="Close">
+                                <button type="button" class="close" data-dismiss="alert aria-label="Close>
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
-                                                <label for="password">Contraseña</label>
+                                                <label for="password">Password</label>
                                                 {!! Form::text('password',null, array('class'=>'form-control'))!!}
                                             </div>
                                         </div>

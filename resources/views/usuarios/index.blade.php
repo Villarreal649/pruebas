@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <div class="float-right">
                                 <a href="{{ route('usuarios.create') }}" class="btn btn-warning">
-                                  {{ __('Create New') }}
+                                {{ __('Agregar ') }} <i class="fa fa-plus"></i>
                                 </a>
                               </div>
                               @if ($message = Session::get('success'))
@@ -22,10 +22,10 @@
                                         <p>{{ $message }}</p>
                                     </div>
                                 @endif
-                                <div class="card-body">
+
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover mt-2">
-                                <thead class="thead">
+                            <table class="table">
+                                <thead class="table-light">
                                     <tr>
                                         <th>No.</th>
 										<th>Matricula</th>
@@ -40,8 +40,8 @@
                                 <tbody>
                                     @foreach ($usuarios as $usuario)
                                         <tr>
-                                            <td>{{++$i}}</td>  
-                                            
+                                            <td>{{++$i}}</td>
+
 											<td>{{ $usuario->matricula }}</td>
 											<td>{{ $usuario->name }}</td>
 											<td>{{ $usuario->email }}</td>
@@ -51,17 +51,17 @@
                                                     <h5><span class="badge badge-dark">{{$roleName}}</span></h5>
                                                     @endforeach
                                                 @endif
-										
+
 
                                             <td>
-                                             
+
                                                     <form action="{{ route('usuarios.destroy',$usuario->id) }}" method="POST"style="display:inline">
-            
-                                                    <a class="btn btn-sm btn-success mt-2" href="{{ route('usuarios.edit',$usuario->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+
+                                                    <a class="btn btn-sm btn-success mt-2" href="{{ route('usuarios.edit',$usuario->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm mt-2" onclick="
-                                                    return confirm('Are you sure that you want to delete this item?')" ><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    return confirm('Estas seguro de que quieres borrar este usuario?')" ><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -79,4 +79,3 @@
         </div>
     </section>
 @endsection
-

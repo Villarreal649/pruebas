@@ -14,12 +14,12 @@
                             <span class="card-title">Datos de Edificio</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('edificios.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('edificios.index') }}"> Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Nombre Edificio:</strong>
                             {{ $edificio->name }}

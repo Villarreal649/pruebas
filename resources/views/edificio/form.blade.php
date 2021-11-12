@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('Nombre de Edificio') }}
             {{ Form::text('name', $edificio->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Agrega el nombre del edificio']) }}
@@ -29,6 +29,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-warning">Guardar</button>
     </div>
 </div>
