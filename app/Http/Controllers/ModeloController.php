@@ -25,9 +25,10 @@ class ModeloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $modelos = Modelo::paginate();
+        $modelo = $request->get('buscarpormodelo');
+        $modelos = Modelo::where('modelo',  'like', "%$modelo%")->paginate(5);
 
         return view('modelo.index', compact('modelos'))
             ->with('i', (request()->input('page', 1) - 1) * $modelos->perPage());

@@ -16,7 +16,7 @@ use DB;
 
 /**
  * Class ProductoController
- * @package App\Http\Controllers 
+ * @package App\Http\Controllers
  */
 class ProductoController extends Controller
 {
@@ -33,9 +33,10 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $productos = Producto::paginate();
+        $producto = $request->get('buscarporproducto');
+        $productos = Producto::where('num_inventario',  'like', "%$producto%")->paginate(5);
 
         return view('producto.index', compact('productos'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
@@ -108,7 +109,7 @@ class ProductoController extends Controller
         $modelos=Modelo::pluck('modelo','id');
         $categorias=Categoria::pluck('name','id');
         $subcategorias=Subcategoria::pluck('name','id');
-    
+
 
         return view('producto.edit', compact('producto','areas','tipoaltas','marcas','users','estados','modelos','categorias','subcategorias'));
     }
@@ -164,7 +165,7 @@ class ProductoController extends Controller
 }
 
 function list(){
-    
+
     return Producto::all();
 }
 
@@ -174,7 +175,7 @@ function search($n_inventario){
     ->select('productos.id','productos.num_inventario','areas.name as Area',
     'tipoaltas.name as Tipo_Alta','productos.fecha_alta as Fecha_Alta','marcas.name as Marca',
     'users.name as Encargado','estados.estado as Status','modelos.modelo as Modelo','productos.num_serie as Num_Serie',
-    'categorias.name as Categoria', 'subcategorias.name as Subcategoria')
+    'categorias.name as Categoria', 'subcategorias.name as Subcategoria','productos.imagen as Imagen')
     ->join('areas', 'areas.id', '=', 'productos.area_id')
     ->join('tipoaltas', 'tipoaltas.id', '=', 'productos.tipo_id')
     ->join('estados', 'estados.id', '=', 'productos.status_id')

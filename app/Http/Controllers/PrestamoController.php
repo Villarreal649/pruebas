@@ -21,15 +21,17 @@ class PrestamoController extends Controller
         $this->middleware('permission:borrar-prestamo',['only'=>['destroy']]);
 
     }
-    
-    /** 
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $prestamos = Prestamo::paginate();
+        $prestamo = $request->get('buscarporprestamo');
+        $prestamos = Prestamo::where('name',  'like', "%$prestamo%")->paginate(5);
+
 
         return view('prestamo.index', compact('prestamos'))
             ->with('i', (request()->input('page', 1) - 1) * $prestamos->perPage());

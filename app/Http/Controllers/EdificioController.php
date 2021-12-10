@@ -25,9 +25,10 @@ class EdificioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $edificios = Edificio::paginate();
+        $edificio = $request->get('buscarporedificio');
+        $edificios = Edificio::where('name',  'like', "%$edificio%")->paginate(5);
 
         return view('edificio.index', compact('edificios'))
             ->with('i', (request()->input('page', 1) - 1) * $edificios->perPage());

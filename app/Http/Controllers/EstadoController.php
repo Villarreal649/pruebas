@@ -24,9 +24,10 @@ class EstadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $estados = Estado::paginate();
+        $estado = $request->get('buscarporestado');
+        $estados = Estado::where('estado',  'like', "%$estado%")->paginate(5);
 
         return view('estado.index', compact('estados'))
             ->with('i', (request()->input('page', 1) - 1) * $estados->perPage());

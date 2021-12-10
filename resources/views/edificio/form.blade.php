@@ -3,22 +3,22 @@
 
         <div class="form-group">
             {{ Form::label('Nombre de Edificio') }}
-            {{ Form::text('name', $edificio->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Agrega el nombre del edificio']) }}
+            {{ Form::text('name', $edificio->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : '')]) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('No.Teléfono') }}
-            {{ Form::text('number', $edificio->number, ['class' => 'form-control' . ($errors->has('number') ? ' is-invalid' : ''), 'placeholder' => 'No.Teléfono del edificio']) }}
+            {{ Form::text('number', $edificio->number, ['class' => 'form-control' . ($errors->has('number') ? ' is-invalid' : '')]) }}
             {!! $errors->first('number', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('email') }}
-            {{ Form::text('email', $edificio->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email del edificio']) }}
+            {{ Form::text('email', $edificio->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : '')]) }}
             {!! $errors->first('email', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Ubicación') }}
-            {{ Form::text('ubicacion', $edificio->ubicacion, ['class' => 'form-control' . ($errors->has('ubicacion') ? ' is-invalid' : ''), 'placeholder' => 'Ubicación del edificio']) }}
+            {{ Form::text('ubicacion', $edificio->ubicacion, ['class' => 'form-control' . ($errors->has('ubicacion') ? ' is-invalid' : '')]) }}
             {!! $errors->first('ubicacion', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">

@@ -4386,6 +4386,9 @@ input[type=button].btn-block {
 
 .card-title {
   margin-bottom: 0.75rem;
+  font-weight: bold;
+  font-size: 20px;
+
 }
 
 .card-subtitle {
@@ -11028,3 +11031,9 @@ transition: 0.3s;
 }
 
 
+.stat svg {
+    stroke-width: 1.5;
+    color: #3b7ddd!important;
+    height: 18px;
+    width: 18px;
+}

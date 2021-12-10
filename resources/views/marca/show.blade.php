@@ -14,7 +14,7 @@
                             <span class="card-title">Mostrar Marca</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('marcas.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('marcas.index') }}"> Atras</a>
                         </div>
                     </div>
 

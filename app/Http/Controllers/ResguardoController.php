@@ -26,9 +26,11 @@ class ResguardoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $resguardos = Resguardo::paginate();
+        $resguardo = $request->get('buscarporresguardo');
+
+        $resguardos = Resguardo::where('nombre_solicitante',  'like', "%$resguardo%")->paginate(5);
 
         return view('resguardo.index', compact('resguardos'))
             ->with('i', (request()->input('page', 1) - 1) * $resguardos->perPage());
@@ -58,7 +60,7 @@ class ResguardoController extends Controller
         request()->validate(Resguardo::$rules);
 
         $resguardo = Resguardo::create($request->all());
-        
+
         return redirect()->route('resguardos.index')
             ->with('success', 'Resguardo created successfully.');
     }

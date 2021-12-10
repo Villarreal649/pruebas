@@ -11,16 +11,33 @@ use Illuminate\Support\Arr;
 
 class UsuarioController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
-        $usuarios=User::paginate(5);
+        $nombre = $request->get('buscarpornombre');
+
+
+        $usuarios=User::where('name',  'like', "%$nombre%")->paginate(5);
+
         return view ('usuarios.index',compact('usuarios'))
         ->with('i', (request()->input('page', 1) - 1) * $usuarios->perPage());
+
+
+        $latestUser = DB::table('users')
+                   ->select('name', DB::raw('MAX(created_at) as last_user_created_at'))
+                   ->where('is_published', true)
+                   ->groupBy('id');
+
+        $users = DB::table('users')
+        ->joinSub($latestUser, 'latest_user', function ($join) {
+            $join->on('users.id', '=', 'latest_user.id');
+        })->get();
 
     }
 
@@ -44,7 +61,7 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'matricula'=>'required',
+            'matricula'=>'required|max:10',
             'name'=>'required',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|same:confirm-password',
@@ -69,7 +86,7 @@ class UsuarioController extends Controller
         $user = User::find($id);
 
         return view('usuarios.show', compact('usuario'));
-     
+
     }
 
     /**
@@ -97,7 +114,7 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'matricula'=>'required',
+            'matricula'=>'required|max:10',
             'name'=>'required',
             'email'=>'required|email|unique:users,email,'.$id,
             'password'=>'same:confirm-password',
@@ -131,4 +148,5 @@ class UsuarioController extends Controller
         User::find($id)->delete();
         return redirect()->route('usuarios.index');
     }
+
 }

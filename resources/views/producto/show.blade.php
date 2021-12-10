@@ -1,27 +1,30 @@
+
+
 @extends('layouts.app')
-
 @section('template_title')
-    {{ $producto->name ?? 'Show Producto' }}
+    Mostrar Producto
 @endsection
-
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Producto</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('productos.index') }}"> Back</a>
-                        </div>
-                    </div>
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">Mostrar Producto</h3>
+        </div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12">
 
+                @includeif('partials.errors')
+                    <div class="card">
                     <div class="card-body">
+                    <div class="float-right">
+                                    <a href="{{ route('productos.index') }}" class="btn btn-warning">
+                                    {{ __('Regresar') }}
+                                    </a>
+                                </div>
+                                <br>
 
-                        <div class="form-group">
-                            <strong>N Inventario:</strong>
+                                <div class="form-group">
+                            <strong>N. Inventario:</strong>
                             {{ $producto->num_inventario }}
                         </div>
                         <div class="form-group">
@@ -69,9 +72,15 @@
                             {{ $producto->imagen }}
                         </div>
 
+
+                    </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 @endsection
+
+
+

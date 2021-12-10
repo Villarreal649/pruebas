@@ -26,9 +26,10 @@ class SubcategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $subcategorias = Subcategoria::paginate();
+        $subcategoria = $request->get('buscarporsubcategoria');
+        $subcategorias = Subcategoria::where('name',  'like', "%$subcategoria%")->paginate(5);
 
         return view('subcategoria.index', compact('subcategorias'))
             ->with('i', (request()->input('page', 1) - 1) * $subcategorias->perPage());

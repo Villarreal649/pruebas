@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Marca;
 use Illuminate\Http\Request;
-
+ 
 /**
  * Class MarcaController
  * @package App\Http\Controllers
@@ -25,9 +25,10 @@ class MarcaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $marcas = Marca::paginate();
+        $marca = $request->get('buscarpormarca');
+        $marcas = Marca::where('name',  'like', "%$marca%")->paginate(5);
 
         return view('marca.index', compact('marcas'))
             ->with('i', (request()->input('page', 1) - 1) * $marcas->perPage());

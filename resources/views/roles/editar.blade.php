@@ -24,8 +24,8 @@
                               </div>
 
                               @endif
-                            
-                                {!! Form::model($role,['method'=>'PATCH','route'=>['roles.update',$role->id]]) !!} 
+
+                                {!! Form::model($role,['method'=>'PATCH','route'=>['roles.update',$role->id]]) !!}
                                          <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                             <div class="form-group">
@@ -45,10 +45,11 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                     
+
                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                            <button type="submit" class="btn btn-warning">Guardar</button>
                                         </div>
+
 
                                     </div>
                                     {!!Form::close()!!}

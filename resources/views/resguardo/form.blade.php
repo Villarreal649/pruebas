@@ -3,17 +3,17 @@
 
         <div class="form-group">
             {{ Form::label('nombre_solicitante') }}
-            {{ Form::text('nombre_solicitante', $resguardo->nombre_solicitante, ['class' => 'form-control' . ($errors->has('nombre_solicitante') ? ' is-invalid' : ''), 'placeholder' => 'Agregue al Solicitante']) }}
+            {{ Form::text('nombre_solicitante', $resguardo->nombre_solicitante, ['class' => 'form-control' . ($errors->has('nombre_solicitante') ? ' is-invalid' : '')]) }}
             {!! $errors->first('nombre_solicitante', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('No. Telefónico') }}
-            {{ Form::text('number', $resguardo->number, ['class' => 'form-control' . ($errors->has('number') ? ' is-invalid' : ''), 'placeholder' => 'Agregue un Telefóno']) }}
+            {{ Form::text('number', $resguardo->number, ['class' => 'form-control' . ($errors->has('number') ? ' is-invalid' : '')]) }}
             {!! $errors->first('number', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('email') }}
-            {{ Form::text('email', $resguardo->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
+            {{ Form::text('email', $resguardo->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : '')]) }}
             {!! $errors->first('email', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('matrícula') }}
-            {{ Form::text('matricula', $resguardo->matricula, ['class' => 'form-control' . ($errors->has('matricula') ? ' is-invalid' : ''), 'placeholder' => 'Agrega Matrícula']) }}
+            {{ Form::text('matricula', $resguardo->matricula, ['class' => 'form-control' . ($errors->has('matricula') ? ' is-invalid' : '')]) }}
             {!! $errors->first('matricula', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -33,23 +33,23 @@
         </div>
         <div class="form-group">
             {{ Form::label('observaciones') }}
-            {{ Form::text('observaciones', $resguardo->observaciones, ['class' => 'form-control' . ($errors->has('observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Agregue una Observación']) }}
+            {{ Form::text('observaciones', $resguardo->observaciones, ['class' => 'form-control' . ($errors->has('observaciones') ? ' is-invalid' : '')]) }}
             {!! $errors->first('observaciones', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Encargado') }}
-            {{ Form::select('user_id',$users, $resguardo->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega un Encargado']) }}
+            {{ Form::select('user_id',$users, $resguardo->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Encargado']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
 
             {{ Form::label('Area donde pertenece') }}
-            {{ Form::select('area_id',$areas, $resguardo->area_id, ['class' => 'form-control' . ($errors->has('area_id') ? ' is-invalid' : ''), 'placeholder' => 'Agregue un Area']) }}
+            {{ Form::select('area_id',$areas, $resguardo->area_id, ['class' => 'form-control' . ($errors->has('area_id') ? ' is-invalid' : ''), 'placeholder' => 'Area']) }}
             {!! $errors->first('area_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-warning">Guardar</button>
     </div>
 </div>

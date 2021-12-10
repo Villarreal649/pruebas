@@ -25,9 +25,10 @@ class PlantaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $plantas = Planta::paginate();
+        $planta = $request->get('buscarporplanta');
+        $plantas = Planta::where('name',  'like', "%$planta%")->paginate(5);
 
         return view('planta.index', compact('plantas'))
             ->with('i', (request()->input('page', 1) - 1) * $plantas->perPage());

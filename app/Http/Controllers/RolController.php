@@ -18,15 +18,16 @@ class RolController extends Controller
         $this->middleware('permission:borrar-rol',['only'=>['destroy']]);
 
     }
-  
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $roles=Role::paginate(5);
+        $rol = $request->get('buscarporrol');
+        $roles=Role::where('name',  'like', "%$rol%")->paginate(5);
         return view('roles.index',compact('roles'))
         ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
     }

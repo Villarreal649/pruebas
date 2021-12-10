@@ -218,8 +218,9 @@ select.form-control:not([size]):not([multiple]) {
 .form-group > label {
     font-weight: 600;
     color: #34395e;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: .5px;
+
 }
 
 .form-group.floating-addon {
@@ -785,6 +786,8 @@ select.form-control:not([size]):not([multiple]) {
     padding: 15px 25px;
     display: flex;
     align-items: center;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .card .card-header .btn {
@@ -4135,4 +4138,8 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
 #name_heading_welcome{
     color: var(--UTT);
     padding-left: 10px;
+}
+.head-text{
+    font-weight: bold;
+    font-size: 20px;
 }

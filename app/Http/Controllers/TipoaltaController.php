@@ -24,9 +24,10 @@ class TipoaltaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tipoaltas = Tipoalta::paginate();
+        $tipoalta = $request->get('buscarportipoalta');
+        $tipoaltas = Tipoalta::where('name',  'like', "%$tipoalta%")->paginate(5);
 
         return view('tipoalta.index', compact('tipoaltas'))
             ->with('i', (request()->input('page', 1) - 1) * $tipoaltas->perPage());
@@ -69,7 +70,7 @@ class TipoaltaController extends Controller
     {
         $tipoalta = Tipoalta::find($id);
 
-        return view('tipoaltas.show', compact('tipoalta'));
+        return view('tipoalta.show', compact('tipoalta'));
     }
 
     /**
@@ -82,7 +83,7 @@ class TipoaltaController extends Controller
     {
         $tipoalta = Tipoalta::find($id);
 
-        return view('tipoaltas.edit', compact('tipoalta'));
+        return view('tipoalta.edit', compact('tipoalta'));
     }
 
     /**

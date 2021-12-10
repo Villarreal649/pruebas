@@ -3,17 +3,17 @@
 
         <div class="form-group">
             {{ Form::label('N. Inventario') }}
-            {{ Form::text('num_inventario', $producto->num_inventario, ['class' => 'form-control' . ($errors->has('num_inventario') ? ' is-invalid' : ''), 'placeholder' => 'Agrega el N. Inventario']) }}
+            {{ Form::text('num_inventario', $producto->num_inventario, ['class' => 'form-control' . ($errors->has('num_inventario') ? ' is-invalid' : ''), 'placeholder' => 'Ej. 123456789']) }}
             {!! $errors->first('num_inventario', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Area') }}
-            {{ Form::select('area_id',$areas, $producto->area_id, ['class' => 'form-control' . ($errors->has('area_id') ? ' is-invalid' : ''), 'placeholder' => 'Agregar un area']) }}
+            {{ Form::select('area_id',$areas, $producto->area_id, ['class' => 'form-control' . ($errors->has('area_id') ? ' is-invalid' : ''), 'placeholder' => 'Area']) }}
             {!! $errors->first('area_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Tipo Alta') }}
-            {{ Form::select('tipo_id',$tipoaltas, $producto->tipo_id, ['class' => 'form-control' . ($errors->has('tipo_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega un tipo de alta']) }}
+            {{ Form::select('tipo_id',$tipoaltas, $producto->tipo_id, ['class' => 'form-control' . ($errors->has('tipo_id') ? ' is-invalid' : ''), 'placeholder' => 'Tipo de alta']) }}
             {!! $errors->first('tipo_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -23,37 +23,37 @@
         </div>
         <div class="form-group">
             {{ Form::label('Marca') }}
-            {{ Form::select('marca_id',$marcas, $producto->marca_id, ['class' => 'form-control' . ($errors->has('marca_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega una marca']) }}
+            {{ Form::select('marca_id',$marcas, $producto->marca_id, ['class' => 'form-control' . ($errors->has('marca_id') ? ' is-invalid' : ''), 'placeholder' => 'Marca']) }}
             {!! $errors->first('marca_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Encargado') }}
-            {{ Form::select('user_id',$users, $producto->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega un encargado']) }}
+            {{ Form::select('user_id',$users, $producto->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Encargado']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Status') }}
-            {{ Form::select('status_id',$estados, $producto->status_id, ['class' => 'form-control' . ($errors->has('status_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega un status']) }}
+            {{ Form::label('Estado') }}
+            {{ Form::select('status_id',$estados, $producto->status_id, ['class' => 'form-control' . ($errors->has('status_id') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
             {!! $errors->first('status_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Modelo') }}
-            {{ Form::select('modelo_id',$modelos, $producto->modelo_id, ['class' => 'form-control' . ($errors->has('modelo_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega un modelo']) }}
+            {{ Form::select('modelo_id',$modelos, $producto->modelo_id, ['class' => 'form-control' . ($errors->has('modelo_id') ? ' is-invalid' : ''), 'placeholder' => 'Modelo']) }}
             {!! $errors->first('modelo_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('N. Serie') }}
-            {{ Form::text('num_serie', $producto->num_serie, ['class' => 'form-control' . ($errors->has('num_serie') ? ' is-invalid' : ''), 'placeholder' => 'Agrega un N. serie']) }}
+            {{ Form::text('num_serie', $producto->num_serie, ['class' => 'form-control' . ($errors->has('num_serie') ? ' is-invalid' : ''), 'placeholder' => 'Ej. 123456789']) }}
             {!! $errors->first('num_serie', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('categoría') }}
-            {{ Form::select('categoria_id',$categorias, $producto->categoria_id, ['class' => 'form-control' . ($errors->has('categoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Agrega una categoría']) }}
+            {{ Form::select('categoria_id',$categorias, $producto->categoria_id, ['class' => 'form-control' . ($errors->has('categoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Categoría']) }}
             {!! $errors->first('categoria_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Subcategoría') }}
-            {{ Form::select('subcategoria_id',$subcategorias, $producto->subcategoria_id, ['class' => 'form-control' . ($errors->has('subcategoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Agreaga una subcategoría']) }}
+            {{ Form::select('subcategoria_id',$subcategorias, $producto->subcategoria_id, ['class' => 'form-control' . ($errors->has('subcategoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Subcategoría']) }}
             {!! $errors->first('subcategoria_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -64,6 +64,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-warning">Guardar</button>
     </div>
 </div>

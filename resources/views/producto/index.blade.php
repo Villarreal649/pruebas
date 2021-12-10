@@ -9,13 +9,26 @@
 
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Productos</h3>
+        <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input name="buscarporproducto" type="search" placeholder="N. de inventario" class="form-control"
+                    aria-label="Search"  >
+
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body"> <div class="float-left">
+                                <div class="head-text">Productos</div>
+                            </div>
                         @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
                                         <p>{{ $message }}</p>
@@ -25,12 +38,12 @@
 
                             <div class="float-right">
                                 <a href="{{ route('productos.create') }}" class="btn btn-warning">
-                                  {{ __('Create New') }}
+                                {{ __('Agregar ') }} <i class="fa fa-plus"></i>
                                 </a>
                               </div>
                             @endcan
                         <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-striped table-hover mt-2" id="productos">
                                 <thead class="table-light">
                                 <tr>
                                         <th>No</th>
@@ -41,14 +54,15 @@
 										<th>Fecha Alta</th>
 										<th>Marca</th>
 										<th>Encargado</th>
-										<th>Status</th>
+										<th>Estado</th>
 										<th>Modelo</th>
 										<th>N Serie</th>
 										<th>Categoría</th>
 										<th>Subcategoría</th>
 										<th>Imagen</th>
+                                        <th>Acciones</th>
 
-                                        <th></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,7 +83,7 @@
 											<td>{{ $producto->subcategoria->name }}</td>
 											<td>{{ $producto->imagen }}</td>
                                             <td>
-                                            @can('editar-producto]')
+                                           @can('editar-producto')
                                                         <a class="btn btn-sm btn-success mt-2" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @endcan
 

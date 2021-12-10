@@ -1,14 +1,15 @@
 <div class="box box-info padding-1">
     <div class="box-body">
 
+
         <div class="form-group">
             {{ Form::label('Matrícula ') }}
-            {{ Form::text('matricula', $prestamo->matricula, ['class' => 'form-control' . ($errors->has('matricula') ? ' is-invalid' : ''), 'placeholder' => 'Matrícula ']) }}
+            {{ Form::text('matricula', $prestamo->matricula, ['class' => 'form-control' . ($errors->has('matricula') ? ' is-invalid' : '')]) }}
             {!! $errors->first('matricula', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('nombre') }}
-            {{ Form::text('name', $prestamo->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre De Solicitante']) }}
+            {{ Form::text('name', $prestamo->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : '')]) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
@@ -24,12 +25,12 @@
         </div>
         <div class="form-group">
             {{ Form::label('observaciones') }}
-            {{ Form::text('observaciones', $prestamo->observaciones, ['class' => 'form-control' . ($errors->has('observaciones') ? ' is-invalid' : ''), 'placeholder' => 'Agregar observaciones']) }}
+            {{ Form::text('observaciones', $prestamo->observaciones, ['class' => 'form-control' . ($errors->has('observaciones') ? ' is-invalid' : '')]) }}
             {!! $errors->first('observaciones', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Encargado') }}
-            {{ Form::select('user_id',$users, $prestamo->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Agregar a un encargado']) }}
+            {{ Form::select('user_id',$users, $prestamo->user_id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'Encargado']) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -40,6 +41,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-warning">Guardar</button>
     </div>
 </div>

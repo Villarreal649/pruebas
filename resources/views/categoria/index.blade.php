@@ -9,13 +9,27 @@
 
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Categoría</h3>
+        <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input name="buscarporcategoria" type="search" placeholder="Nombre de la categoria..." class="form-control"
+                    aria-label="Search"  >
+
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                        <div class="float-left">
+                                <div class="head-text">Categorias</div>
+                            </div>
                         @if ($message = Session::get('success'))
                                     <div class="alert alert-success">
                                         <p>{{ $message }}</p>
@@ -30,7 +44,7 @@
                               </div>
                             @endcan
                         <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-striped table-hover mt-2" id="categorias">
                                 <thead class="table-light">
                                 <tr>
                                         <th>No</th>
@@ -39,7 +53,7 @@
 										<th>Descripción</th>
                                         <th>Acciones</th>
 
-                                        <th></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,8 +64,8 @@
 											<td>{{ $categoria->name }}</td>
 											<td>{{ $categoria->descripcion }}</td>
                                             <td>
-                                            @can('editar-categoria]')
-                                                        <a class="btn btn-sm btn-success mt-2" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                            @can('editar-categoria')
+                                                        <a class="btn btn-sm btn-success mt-2" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @endcan
 
                                                     @can('borrar-categoria')
@@ -59,7 +73,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm mt-2" onclick="
-                                                    return confirm('Estas seguro de que deseas borrar esta categoria?')" ><i class="fa fa-fw fa-trash"></i>Borrar</button>
+                                                    return confirm('Are you sure that you want to delete this item?')" ><i class="fa fa-fw fa-trash"></i> Delete</button>
                                                 </form>
                                                     @endcan
                                             </td>

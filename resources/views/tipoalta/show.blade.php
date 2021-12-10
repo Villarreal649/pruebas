@@ -1,12 +1,12 @@
 
 @extends('layouts.app')
 @section('template_title')
-    Mostrar Planta
+    Mostrar Tipo de Alta
 @endsection
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Mostrar Planta</h3>
+            <h3 class="page__heading">Mostrar Tipo de Alta</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -16,18 +16,15 @@
                     <div class="card">
                     <div class="card-body">
                     <div class="float-right">
-                                    <a href="{{ route('planta.index') }}" class="btn btn-warning">
+                                    <a href="{{ route('tiposaltas.index') }}" class="btn btn-warning">
                                     {{ __('Regresar') }}
                                     </a>
                                 </div>
                                 <br>
-                            <div class="form-group">
-                            <strong>Nombre Planta:</strong>
-                            {{ $planta->name }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nombre Edificio:</strong>
-                            {{ $planta->edificio-name }}
+
+                                <div class="form-group">
+                            <strong>Tipo de alta:</strong>
+                            {{ $tipoalta->name }}
                         </div>
 
 

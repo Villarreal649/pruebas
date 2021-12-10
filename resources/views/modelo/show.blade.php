@@ -14,7 +14,7 @@
                             <span class="card-title">Mostrar modelo Modelo</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('modelos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('modelos.index') }}"> Atras</a>
                         </div>
                     </div>
 

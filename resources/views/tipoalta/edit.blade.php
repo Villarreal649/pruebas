@@ -18,7 +18,7 @@
                         <span class="card-title">Actualizar Tipo Alta</span>
                     </div>
                     <div class="card-body">
-                    <form method="POST" action="{{ route('tiposaltas.update', $tipoalta->id) }}"  role="form" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('tipoaltas.update', $tipoalta->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

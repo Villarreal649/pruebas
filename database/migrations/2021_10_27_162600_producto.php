@@ -27,7 +27,7 @@ class Producto extends Migration
             $table->string('num_serie');
             $table->bigInteger('categoria_id')->unsigned();
             $table->bigInteger('subcategoria_id')->unsigned();
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
             $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas')->onDelete("cascade");
             $table->foreign('tipo_id')->references('id')->on('tipoaltas')->onDelete("cascade");
